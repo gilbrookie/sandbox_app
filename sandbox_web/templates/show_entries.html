@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    {% if session.logged_in %}
+    
+    <form action="{{ url_for('entry_api') }}" method=post class=add-entry>
+      <dl>
+        <dt>Title:
+        <dd><input type=text size=50 name=title>
+        <dt>Text:
+        <dd><textarea name=text rows=5 cols=40></textarea>
+        <dt>Type:
+            <input type="radio", name="type" value=0 checked> Note
+            <input type="radio", name="type" value=1> Blog
+        <dt><input type=submit value=Share>
+
+      </dl>
+    </form>
+
+    {% endif %}
+    
+    <ul class=entries>    
+    {% for entry in entries %}
+    <li>
+        <h2>{{ entry.title }}
+
+
+        {% if session.logged_in %}
+        <img src={{url_for('static', filename='Action-cancel-icon.png')}}
+        alt="delete_entry" width="10" height="10"
+        onClick=deletePost("{{ url_for('entry_api' )}}dl/?entry_id={{entry.id}}");>
+        
+        {% endif %}
+        </h2>
+        <i>[ {{entry.type}} ] - {{entry.created}}; {{entry.id}}</i> <br /> 
+            {{ entry.text|safe }}
+    {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+Sandbox_app
+===========
+
+This project is really just a sandbox of things/ideas I'm working on or am interested in.
+
+
+Overview
+---------
+
+Essentially this app is a Flask website that connects to a SQLite database and also has a
+command line interface to the backend (because I like using a terminal).
+
+

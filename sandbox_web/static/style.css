@@ -1,0 +1,52 @@
+body            { font-family: sans-serif; background: #eee; }
+a, h1, h2       { color: #377BA8; }
+h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+input           { padding-left: 1px;
+                  background: #fff;
+                  border-style: solid;
+                  border-color: black;
+                  border-width: 1px;
+                  font-family: helvetica, arial, sans serif;
+                  padding-left: 1px;
+                  padding-top:0px;
+                  color:#337BA8;}
+input.button    { text-align:right; border-style:none }
+
+.header         { color: #377BA8, border-bottom: 2px solid #666 }
+.header h1      { font-family:'Georgia', serif; margin: 0; }
+.page           { margin: 2em auto; width: 50em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; }
+.page dt        { color:#377BA8; }
+.entries        { list-style: none; margin: 0; padding: 0; }
+.entries li     { margin: 0.8em 1.2em; }
+.entries li h2  { margin-left: -1em; }
+.entries li i   { color:#ccc; }
+.add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-entry dl   { font-weight: bold; }
+
+.metanav        { font-size: 0.8em; 
+                  padding: 0.1em;
+                  height:50px;
+                  background: #f5f5f5; }
+.metanav ul     {
+                  list-style-type: none;
+                  text-align:left;
+                  float:left;
+                  margin:1em;
+                  padding-left:0.1em;
+                }
+.metanav li     {
+                  display: inline;
+                  text-align:center;
+                  padding: 0.5em;
+                  text-decoration:none;
+                  text-transform:uppercase;
+                }
+
+.metanav dt     { text-align:right;}
+
+.flash          { background: #CEE5F5; padding: 0.5em;
+                  border: 1px solid #AACBE2; }
+.error          { background: #F0D6D6; padding: 0.5em; }

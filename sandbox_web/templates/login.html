@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block login %}
+<h2>Login</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  {% if not session.logged_in %}  
+ 
+      <form action="{{ url_for('login') }}" method=post>
+        <dl>
+          <dt>Username:
+          <input type=text name=username>
+            Password:
+          <input type=password name=password>
+          <dd><input type=submit value=Login>
+        </dl>
+      </form>
+
+  {% else %}
+    <a href="{{ url_for('logout') }}">log out</a>
+  {% endif %}
+
+{% endblock %}
