@@ -3,7 +3,7 @@
 
     {% if session.logged_in %}
     
-    <form action="{{ url_for('entry_api') }}" method=post class=add-entry>
+    <form action="{{ url_for('add_blog') }}" method=post class=add-entry>
       <dl>
         <dt>Title:
         <dd><input type=text size=50 name=title>
@@ -28,7 +28,7 @@
         {% if session.logged_in %}
         <img src={{url_for('static', filename='Action-cancel-icon.png')}}
         alt="delete_entry" width="10" height="10"
-        onClick=deletePost("{{ url_for('entry_api' )}}dl/?entry_id={{entry.id}}");>
+        onClick=deletePost("{{ url_for('delete_blog' )}}dl/?entry_id={{entry.id}}");>
         
         {% endif %}
         </h2>

@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from api import db
+from api.status import Status, OK, ERROR
 
 def get_blog(blog_id=None):
     """Returns blog entries from the database as a dictionary.  If id is present then only that
@@ -24,7 +25,9 @@ def get_blog(blog_id=None):
                     id=row[4]) \
                     for row in res.fetchall()]
     
-    return entries
+    status = Status(OK, None)
+
+    return (status, entries)
 
 def add_blog(blog_vals):
     """Adds a new blog entry to the database"""
