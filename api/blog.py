@@ -10,14 +10,25 @@ def get_blog(blog_id=None):
     If id does not match anything, the return dict will be empty.
     """
     
-    SQL = """
-        SELECT title, text, type, created, id
-        FROM entries
-        """
-
     conn = db.connect_db()
     cur = conn.cursor()
-    res = cur.execute(SQL)
+
+    if not blog_id:
+        SQL = """
+            SELECT title, text, type, created, id
+            FROM entries
+            """
+
+        res = cur.execute(SQL)
+
+    else:
+        SQL = """
+            SELECT title, text, type, created, id
+            FROM entries
+            WHERE id=?
+            """
+        res = cur.execute(SQL, blog_id)
+            
     entries = [dict(title=row[0], 
                     text=row[1], 
                     type=row[2], 
@@ -25,9 +36,9 @@ def get_blog(blog_id=None):
                     id=row[4]) \
                     for row in res.fetchall()]
     
-    status = Status(OK, None)
+    #status = Status(OK, None)
 
-    return (status, entries)
+    return  entries
 
 def add_blog(blog_vals):
     """Adds a new blog entry to the database"""

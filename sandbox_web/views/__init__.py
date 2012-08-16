@@ -1,19 +1,14 @@
 
-<<<<<<< HEAD
-import api, conf
-=======
 import os
 from pprint import pprint as pp
 
 import api
->>>>>>> 570a72a0f39a67a42108c7ec6dc400dde27f0e1d
 from sandbox_web import app
 
 from flask import g, session, redirect, render_template, abort, \
                     request, flash, url_for, send_from_directory
 
-
-import blog_view
+from blog_view import *
 
 
 @app.route("/")

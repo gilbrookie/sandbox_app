@@ -3,16 +3,19 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <script type="text/javascript" src="{{ url_for('static', filename='common.js')}}"></script>
 <div class=page>
-    <div class=header><h1>Sandbox.app </h1> </div>
+    <div class=header>
+        <h1>
+            <a href="/">Sandbox.app </a>
+        </h1> 
+    </div>
  
   <div class=metanav>
     <ul>
         <h2>
-        <li>Blog</li>
-        <li>News</li>
-        <li>Twitter</li>
+            <li><a href="/">Blog</a></li>
+            <li>News</li>
+            <li>Twitter</li>
         </h2>
-        </li>
     </ul>
         
     {% if not session.logged_in %}  

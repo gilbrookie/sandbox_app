@@ -22,7 +22,8 @@
     <ul class=entries>    
     {% for entry in entries %}
     <li>
-        <h2>{{ entry.title }}
+        <h2>
+            <a href="/blog/{{entry.id}}">{{ entry.title }} </a>
 
 
         {% if session.logged_in %}
