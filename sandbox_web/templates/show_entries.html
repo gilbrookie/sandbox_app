@@ -26,12 +26,20 @@
             <a href="/blog/{{entry.id}}">{{ entry.title }} </a>
 
 
-        {% if session.logged_in %}
-        <img src={{url_for('static', filename='Action-cancel-icon.png')}}
+            {% if session.logged_in %}
+
+            <form action={{url_for('delete_blog')}} method=post>
+                <input type=hidden name='id' value={{entry.id}} />
+                <input type=submit src={{ url_for('static',filename='Action-cancel-icon.png') }} />
+            </form>
+
+
+<!--        <img src={{url_for('static', filename='Action-cancel-icon.png')}}
         alt="delete_entry" width="10" height="10"
-        onClick=deletePost("{{ url_for('delete_blog' )}}dl/?entry_id={{entry.id}}");>
+        onClick=deletePost("/blog/del?entry_id={{entry.id}}");>
+-->
         
-        {% endif %}
+            {% endif %}
         </h2>
         <i>[ {{entry.type}} ] - {{entry.created}}; {{entry.id}}</i> <br /> 
             {{ entry.text|safe }}

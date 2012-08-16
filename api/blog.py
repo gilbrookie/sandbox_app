@@ -26,8 +26,9 @@ def get_blog(blog_id=None):
             SELECT title, text, type, created, id
             FROM entries
             WHERE id=?
+            ORDER BY id desc
             """
-        res = cur.execute(SQL, blog_id)
+        res = cur.execute(SQL, [blog_id])
             
     entries = [dict(title=row[0], 
                     text=row[1], 
@@ -40,21 +41,25 @@ def get_blog(blog_id=None):
 
     return  entries
 
-def add_blog(blog_vals):
+def add_blog(request_form):
     """Adds a new blog entry to the database"""
 
-    values = [  blog_vals['title'],
-                blog_vals['text'],
-                blog_vals['type'],
-                datetime.now() ]
+    print request_form 
+    values = [ request_form['title'], 
+               request_form['text'],
+               request_form['type'],
+               datetime.now() ]
+
+    print values
 
     SQL = """
-        INSERT INTO entries (title, text, type, created
-        VALUES (?, ?, ?, ?, ?)"""
+        INSERT INTO entries (title, text, type, created)
+        VALUES (?, ?, ?, ?)"""
 
     conn = db.connect_db()
-    cur = conn.execute(SQL, values)
-    cur.commit()
+    cur = conn.cursor()
+    res = cur.execute(SQL,values)
+    conn.commit()
 
 def delete_blog(id):
     """deletes a specific blog entry from the database"""
@@ -63,7 +68,7 @@ def delete_blog(id):
 
     conn = db.connect_db()
     cur = conn.execute(SQL, [id])
-    cur.commit()
+    conn.commit()
 
 
 

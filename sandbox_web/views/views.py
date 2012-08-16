@@ -52,7 +52,7 @@ def post(self):
     flash('New entry was successfully posted')
         return redirect(url_for('show_entries'))
 
-@app.route('/entry/dl/<entry_id>', methods=['POST'])
+@app.route('/entry/del/<entry_id>', methods=['POST'])
 def delete(self, entry_id):
     print "Got DELETE Request %s" % entry_id
     if not session.get('logged_in'):

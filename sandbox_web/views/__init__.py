@@ -2,7 +2,7 @@
 import os
 from pprint import pprint as pp
 
-import api
+import api, conf
 from sandbox_web import app
 
 from flask import g, session, redirect, render_template, abort, \

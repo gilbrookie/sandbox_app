@@ -5,5 +5,5 @@ function deletePost(url)
     xmlHTTP.open("POST", url, false);
     xmlHTTP.send();
 
-    window.location = "../"
+    window.location = "../";
 }
