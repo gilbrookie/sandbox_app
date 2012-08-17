@@ -2,9 +2,9 @@ from sandbox_web import app
 from api import blog
 from flask import session, render_template, request, redirect, url_for
 
-
+@app.route('/blog', methods=['GET'])
 @app.route('/blog/<blog_id>', methods=['GET'])
-def view_blog(blog_id):
+def view_blog(blog_id=None):
     return render_template("show_entries.html", 
                             entries=blog.get_blog(blog_id))
 
