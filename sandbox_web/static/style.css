@@ -57,3 +57,6 @@ input.button    { text-align:right; border-style:none }
 .flash          { background: #CEE5F5; padding: 0.5em;
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
+
+.body           { padding-top:0.5em; 
+                  color:#3A3A3A;}

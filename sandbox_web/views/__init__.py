@@ -15,8 +15,9 @@ from blog_view import *
 def home():
     """This function peforms the home page view"""
     pp(api.blog.get_blog())
-    return render_template("show_entries.html", 
-                            entries=api.blog.get_blog())
+    #return render_template("show_entries.html", 
+    #                        entries=api.blog.get_blog())
+    return render_template("home.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -43,7 +44,7 @@ def get_file(filename):
     """This function serves file from the file_store directory;
     Returns the file provided by the path:filename argument"""
 
-    print app.config
+    print filename
     return send_from_directory(os.getcwd()+"/file_store/", 
                                filename, as_attachment=True)
 

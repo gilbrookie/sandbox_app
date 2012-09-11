@@ -55,12 +55,13 @@ class LoadManager(object):
         for a in agents:
             a.start()
 
-        if not conf.run_time:
-            enum_exec()
+        if not self.conf.run_time:
+            self.enum_exec()
         else:
-            timed_exec()
-
-        collect_results()
+            self.timed_exec()
+        
+        self.interrupt_exec()
+        self.collect_results()
         
 
 
@@ -98,7 +99,7 @@ class LoadManager(object):
             time.sleep(poll_interval)
 
 
-    def interrupt_exec():
+    def interrupt_exec(self):
         for i in xrange(num_threads):
             self.jobs_q.put(None)
 
@@ -170,7 +171,7 @@ class RequestTask(object):
 
     def do_request(self, conf):
    
-        print conf
+        #print conf
     
         start = time.clock()
         # build the request object
@@ -179,6 +180,7 @@ class RequestTask(object):
                               proxies={"http":conf.proxy})
         end = time.clock()
         latency = (end - start)
+        print r.content
 
         return (latency, r.status_code, r.headers)
 

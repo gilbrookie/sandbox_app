@@ -8,7 +8,7 @@ def view_blog(blog_id=None):
     return render_template("show_entries.html", 
                             entries=blog.get_blog(blog_id))
 
-@app.route('/add', methods=['POST'] )
+@app.route('/blog/add', methods=['POST'] )
 def add_blog():
     if not session.get('logged_in'):
         abort(401)
@@ -19,12 +19,12 @@ def add_blog():
 
     return redirect(url_for('home'))
 
-@app.route('/edit', methods=['POST'] )
+@app.route('/blog/edit', methods=['POST'] )
 def edit_blog():
     if not session.get('logged_in'):
         abort(401)
 
-@app.route('/del', methods=['POST'] )
+@app.route('/blog/del', methods=['POST'] )
 def delete_blog():
     if not session.get('logged_in'):
         abort(401)

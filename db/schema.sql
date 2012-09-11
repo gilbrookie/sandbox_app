@@ -18,3 +18,16 @@ insert into entry_type values (0, "note");
 insert into entry_type values (1, "blog");
 
 insert into entries values (0,"Sample Entry", "This is an example entry", date("now"), 0 );
+
+
+drop table if exists users;
+create table users (
+    id              integer primary key automincrement,
+    first_name      string not null,
+    last_name       string not null,
+    user_name       string not null,
+    password        string not null,
+    is_admin           integer,
+    pw_salt         string not null,
+);
+

@@ -42,8 +42,13 @@
     {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
   </div>
   
-  {% for message in get_flashed_messages() %}
+    {% for message in get_flashed_messages() %}
     <div class=flash>{{ message }}</div>
-  {% endfor %}
-  {% block body %}{% endblock %}
+    {% endfor %}
+
+    <div class=body>
+    {% block body %}
+    </div>    
+{% endblock %}
+
 </div>
