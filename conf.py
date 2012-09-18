@@ -3,7 +3,7 @@ import os
 DB_TYPE = "SQLite"
 
 # Location of the database
-DB_LOC  = "test.db"
+DB_LOC  = "/var/www/sandbox_app/test.db"
 
 # FOR TESTING - REINITIALIZE DB when launching app
 # For production, set to False (which is default)

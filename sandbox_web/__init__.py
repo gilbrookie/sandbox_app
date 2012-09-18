@@ -1,5 +1,5 @@
 from flask import Flask
-from sandbox_app import conf
+import conf
 
 app = Flask(__name__)
 

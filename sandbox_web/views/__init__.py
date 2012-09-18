@@ -45,7 +45,7 @@ def get_file(filename):
     Returns the file provided by the path:filename argument"""
 
     print filename
-    return send_from_directory(os.getcwd()+"/file_store/", 
+    return send_from_directory(app.root_path+"/file_store/", 
                                filename, as_attachment=True)
 
 @app.route("/file/")
@@ -53,4 +53,12 @@ def get_file(filename):
 def list_files():
     """Lists all files available in the filestore"""
     return render_template("files.html", 
-                            file_list=os.listdir(os.getcwd()+"/file_store/")) 
+                            file_list=sorted(os.listdir(os.path.join(app.root_path, "file_store"))))
+
+
+from flask import send_from_directory
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
